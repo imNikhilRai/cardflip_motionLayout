@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~   Copyright (C) 2019 The Android Open Source Project
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  -->
+
+<!-- Describe the animation for activity_main.xml -->
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- A transition describes an animation via start and end state -->
+    <Transition
+        android:id="@+id/back_to_front_right"
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start">
+
+        <OnSwipe
+            app:dragDirection="dragRight"/>
+
+        <KeyFrameSet>
+
+            <!--Mainting the transition as 100% Visibile-->
+            <KeyAttribute
+                app:framePosition="48"
+                android:alpha="1.0"
+                app:motionTarget="@id/back_card" />
+
+            <KeyPosition
+                app:keyPositionType="deltaRelative"
+                app:percentY="0.25"/>"
+
+            <!--Maintaining the transition as invisible with animation-->
+            <KeyAttribute
+                app:framePosition="50"
+                android:scaleX="0.0"
+                android:scaleY="1.0"
+                android:alpha="0.0"
+                android:rotationY="45"
+                app:motionTarget="@id/back_card" />
+
+            <!--Maintaining the transition for front_card as invisible -->
+            <KeyAttribute
+                app:framePosition="48"
+                android:alpha="0.0"
+                app:motionTarget="@id/front_card" />
+
+            <KeyAttribute
+                app:framePosition="50"
+                android:alpha="1.0"
+                android:scaleX="0.0"
+                android:scaleY="1.0"
+                android:rotationY="-45"
+                app:motionTarget="@id/front_card" />
+
+        </KeyFrameSet>
+    </Transition>
+
+    <!--This Transition for the left Swap-->
+    <Transition
+        android:id="@+id/back_to_front_Left"
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start">
+
+        <OnSwipe
+            app:dragDirection="dragLeft"
+            />/>
+
+        <KeyFrameSet>
+
+            <!--setting transition into 50%-->
+            <KeyAttribute
+                app:framePosition="50"
+                android:scaleX="0.0"
+                android:scaleY="1.0"
+                android:rotationY="45"
+                android:alpha="0.0"
+                app:motionTarget="@id/back_card" />
+
+            <KeyAttribute
+                app:framePosition="48"
+                android:alpha="0.0"
+                app:motionTarget="@id/front_card" />
+
+            <KeyAttribute
+                app:framePosition="50"
+                android:alpha="1.0"
+                android:scaleX="0.0"
+                android:scaleY="1.0"
+                android:rotationY="0"
+                app:motionTarget="@id/front_card" />
+        </KeyFrameSet>
+    </Transition>
+
+    <!-- Constraints to apply at the start of the animation -->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/back_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="1.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:rotationY="0"
+            />
+
+        <Constraint
+            android:id="@id/front_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:alpha="0.0"
+            android:rotationY="-45">
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <!-- Constraints to apply at the end of the animation -->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/back_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.0"
+            android:rotationY="45"
+            />
+
+        <Constraint
+            android:id="@id/front_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="1.0"
+            android:rotationY="0"/>
+    </ConstraintSet>
+
+
+</MotionScene>
