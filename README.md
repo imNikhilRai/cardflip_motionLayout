@@ -4,6 +4,9 @@
 
 #Screenshots:
 
+[Screenshot 2022-12-03 at 1.37.43 PM.png
+](https://github.com/imNikhilRai/cardflip_motionLayout/blob/646a40444afb9276fe1d45fc1f9b5dbb354c9a01/Screenshot%202022-12-03%20at%201.37.43%20PM.png)
+
 https://github.com/imNikhilRai/cardflip_motionLayout/blob/master/Screenshot%202022-12-03%20at%201.37.43%20PM.png
 
 https://github.com/imNikhilRai/cardflip_motionLayout/blob/master/Screenshot%202022-12-03%20at%201.38.59%20PM.png
